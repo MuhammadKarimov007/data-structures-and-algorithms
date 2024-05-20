@@ -76,6 +76,22 @@ public class SinglyLinkedListImpl<T>{
         return true;
     }
 
+    public T remove(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
+        if (index == 0) return removeFirst();
+        if (index == size - 1) return removeLast();
+
+        Node pre = head;
+        for (int i = 0; i < index - 1; i++) {
+            pre = pre.next;
+        }
+        Node current = pre.next;
+        pre.next = current.next;
+        current.next = null;
+        size--;
+        return current.value;
+    }
+
     public boolean prepend(T value) {
         final Node newNode = new Node(value);
         if (size == 0) {
