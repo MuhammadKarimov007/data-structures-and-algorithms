@@ -25,6 +25,12 @@ public class SinglyLinkedListImpl<T>{
         size++;
     }
 
+    public SinglyLinkedListImpl(T[] values) {
+        for (T value : values) {
+            append(value);
+        }
+    }
+
     public boolean append(T value) {
         final Node newNode = new Node(value);
         if (size == 0) {
@@ -135,6 +141,24 @@ public class SinglyLinkedListImpl<T>{
         }
         size--;
         return temp.value;
+    }
+
+    public boolean reverse() {
+        if (size == 0) return false;
+
+        Node pre = null;
+        Node current = head;
+        Node after = current.next;
+        while (after != null) {
+            current.next = pre;
+            pre = current;
+            current = after;
+            after = after.next;
+        }
+        current.next = pre;
+        tail = head;
+        head = current;
+        return true;
     }
 
     public int size() {
