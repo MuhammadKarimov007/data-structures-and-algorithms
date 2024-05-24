@@ -1,12 +1,10 @@
 package main;
-
-import doublyLinkedList.DoublyLinkedListImpl;
-import singlyLinkedList.SinglyLinkedListImpl;
+import stacksAndQueues.StackImpl;
 
 
 public class Main {
     public static void main(String[] args) {
-        DoublyLinkedListImpl<String> names = new DoublyLinkedListImpl<>("a");
-        System.out.println(names);
+        StackImpl<String> names = new StackImpl<>("Muhammad");
+        System.out.println(names.getHeight());
     }
 }
