@@ -1,10 +1,11 @@
 package main;
+import binarySearchTree.BinarySearchTreeImpl;
 import stacksAndQueues.StackImpl;
 
 
 public class Main {
     public static void main(String[] args) {
-        StackImpl<String> names = new StackImpl<>("Muhammad");
-        System.out.println(names.getHeight());
+        BinarySearchTreeImpl names = new BinarySearchTreeImpl(12);
+        System.out.println(names.getRoot());
     }
 }
