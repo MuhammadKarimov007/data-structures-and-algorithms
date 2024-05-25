@@ -1,17 +1,17 @@
 package binarySearchTree;
 
 public class BinarySearchTreeImpl {
-    private class Node {
-        int value;
-        Node left;
-        Node right;
+    public class Node {
+        public int value;
+        public Node left;
+        public Node right;
 
         Node(int value) {
             this.value = value;
         }
     }
 
-    private Node root;
+    public Node root;
     public BinarySearchTreeImpl() {}
     public BinarySearchTreeImpl(int value) {
         root = new Node(value);
@@ -42,7 +42,22 @@ public class BinarySearchTreeImpl {
         }
     }
 
-    public int getRoot() throws NullPointerException{
-        return root.value;
+    public boolean contains(int value) {
+        if (root == null) return false;
+        Node temp = root;
+        while (temp != null) {
+            if (value < temp.value) {
+                temp = temp.left;
+            } else if (value > temp.value) {
+                temp = temp.right;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Node getRoot() {
+        return root;
     }
 }
